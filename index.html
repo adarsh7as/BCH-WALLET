@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart wallet</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="stylesheet" href="bch.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
+    </style>
+    <script src="https://cdn.mainnet.cash/smartbch/smartbch-0.4.38.js"
+        integrity="sha384-SVt0Hucc+bcTfi16fcqFrb4eAzIr5BMvlQGDb1uAPMHXpNGAAm8xd/EOtXUEpFEM"
+        crossorigin="anonymous"></script>
+    <script src="bch.js"></script>
+</head>
+
+<body onload="start();">
+    <div id="bodyBox">
+        <div id="mainBox" class="box">
+            <button class="btn" onclick="newWallet();">New Wallet</button>
+            <button class="btn" onclick="importWallet();">Import Wallet</button>
+            <div>
+                <input id="seed" type="text" placeholder="Enter 12 word seed">
+            </div>
+        </div>
+
+        <div id="myWalletBox" class="box">
+            <div id="walletNav">
+                <input id="walletAddress" readonly>
+                <img src="copy.svg" alt="copy" id="copy" onclick="copyAddress();">
+                <img src="menu.svg" alt="menu" id="menu" onclick="toggleMenu()">
+            </div>
+
+            <div id="menuBox">
+                <!-- <li id="txLink" onclick="transaction();"></li> -->
+                <li onclick="openAccount();">Account</li>
+                <li onclick="openTransaction();">Transaction</li>
+                <li onclick="resetFunction()">Reset</li>
+            </div>
+
+            <div id="walletBalance"></div>
+            <div>
+                <button class="btn" onclick="openSend();">Send</button>
+                <button class="btn" onclick="openReceive();">Receive</button>
+            </div>
+        </div>
+
+        <div id="receiveBox" class="box">
+            <h2>Receive sBCH</h2>
+            <p style="text-align: center;">
+                <img src="https://cdn.mainnet.cash/wait.svg" style="width: 20rem;" id="deposit">
+            </p>
+            <div id="receiveAdd">
+                <input id="walletAddress2" readonly>
+                <img src="copy.svg" alt="copy" id="copy" onclick="copyAddress();">
+            </div>
+            <button class="btn" onclick="closeReceive();">Close</button>
+        </div>
+
+        <div id="sendBox" class="box">
+            <h2>Send sBCH</h2>
+            <input type="text" id="address" placeholder="Enter Address">
+            <input type="number" id="amount" placeholder="Enter Amount">
+            <button id="maxAmount" onclick="maxAmount();">Max</button>
+
+            <div id="confirm">
+                <button class="btn" onclick="closeSend();">Close</button>
+                <button class="btn" onclick="withdraw();">Send</button>
+            </div>
+            <div id="loderBox">
+                <div class="loder"></div>
+            </div>
+        </div>
+
+        <div id="accountBox" class="box">
+
+            <div id="seedMainBox">
+                <h2>12 word seed phrace</h2>
+                <div id="seedBox"></div>
+                <button class="btn2" id="copybtn">copy</button>
+                <button class="btn2" id="show-hide" onclick="toggleShow();">show</button>
+            </div>
+
+            <button id="closeAccount" class="btn" onclick="closeAccount();">Close</button>
+        </div>
+
+        <div id="transactionBox">
+            <h2>Transactions</h2>
+            <div id="thbox"></div>
+            <button id="closeTransaction" class="btn" onclick="closeTransaction();">Close</button>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
