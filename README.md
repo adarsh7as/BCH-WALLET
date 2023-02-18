@@ -1,1 +1,1 @@
-# smartWallet
+# BITCOIN$WALLET 
